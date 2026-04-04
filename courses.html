@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses | HIAT – Institute of Accounts & Taxation</title>
+<meta name="description" content="Explore professional accounting and taxation courses at HIAT Bhiwani — Tally, GST, Income Tax, AI in Accounting, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="courses">
+<div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+<!-- ─── NAVBAR ─── -->
+<nav id="navbar" aria-label="Main navigation">
+  <a class="logo" href="index.html">
+  <img src="image/hiet_logo-removebg-preview.png" alt="HIAT Logo" class="nav-logo-img">
+
+    HIAT
+    <span>Institute of Accounts & Taxation</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" id="nav-home">Home</a></li>
+    <li><a href="courses.html" id="nav-courses">Courses</a></li>
+    <li><a href="about.html" id="nav-about">About Us</a></li>
+    <li><a href="contact.html" id="nav-contact">Contact</a></li>
+    <li><a href="#" onclick="openEnroll();return false;" class="nav-cta">Enroll Now</a></li>
+  </ul>
+  <button type="button" class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══════════════════ COURSES PAGE ═══════════════════ -->
+<div class="courses-hero">
+  <div class="section-label">Our Programs</div>
+  <h1 style="font-size:clamp(2.5rem,5vw,4.5rem);">Professional <em class="gold">Courses</em></h1>
+  <div class="divider center"></div>
+  <p style="font-size:1rem;color:var(--gray);max-width:500px;margin:0 auto;">Industry-aligned programs designed by CAs and Tax Advocates for maximum career impact.</p>
+</div>
+<div class="courses-full-grid">
+  <div class="course-card-full reveal tilt">
+    <span class="cc-badge">Beginner</span>
+    <div class="cc-header">
+      <div class="cc-icon">💻</div>
+      <div class="cc-name">Basics of Computer</div>
+      <span class="cc-duration">⏱ 1–2 Months</span>
+    </div>
+    <div class="cc-body">
+      <ul class="cc-features">
+        <li>MS Office (Word, Excel, PowerPoint)</li>
+        <li>Internet & Email Basics</li>
+        <li>Data Entry & File Management</li>
+        <li>Typing Speed Development</li>
+        <li>Certificate on Completion</li>
+      </ul>
+      <button class="cc-enroll" onclick="openEnroll()">Enroll Now</button>
+    </div>
+  </div>
+  <div class="course-card-full reveal reveal-delay-1 tilt">
+    <span class="cc-badge">Popular</span>
+    <div class="cc-header">
+      <div class="cc-icon">📒</div>
+      <div class="cc-name">Tally with GST</div>
+      <span class="cc-duration">⏱ 2–3 Months</span>
+    </div>
+    <div class="cc-body">
+      <ul class="cc-features">
+        <li>Tally Prime – Complete Course</li>
+        <li>GST Configuration & Filing</li>
+        <li>Invoice & Voucher Entry</li>
+        <li>Bank Reconciliation</li>
+        <li>MIS Reports & Balance Sheet</li>
+      </ul>
+      <button class="cc-enroll" onclick="openEnroll()">Enroll Now</button>
+    </div>
+  </div>
+  <div class="course-card-full reveal reveal-delay-2 tilt">
+    <span class="cc-badge">Core</span>
+    <div class="cc-header">
+      <div class="cc-icon">📊</div>
+      <div class="cc-name">Practical Accounting</div>
+      <span class="cc-duration">⏱ 3–4 Months</span>
+    </div>
+    <div class="cc-body">
+      <ul class="cc-features">
+        <li>Journal, Ledger & Trial Balance</li>
+        <li>Financial Statement Preparation</li>
+        <li>Accounts Payable & Receivable</li>
+        <li>Bank Reconciliation & Audit</li>
+        <li>Real Company Data Practice</li>
+      </ul>
+      <button class="cc-enroll" onclick="openEnroll()">Enroll Now</button>
+    </div>
+  </div>
+  <div class="course-card-full reveal tilt">
+    <span class="cc-badge">Advanced</span>
+    <div class="cc-header">
+      <div class="cc-icon">🧾</div>
+      <div class="cc-name">Income Tax, TDS & GST</div>
+      <span class="cc-duration">⏱ 3 Months</span>
+    </div>
+    <div class="cc-body">
+      <ul class="cc-features">
+        <li>ITR Filing (1, 2, 3, 4)</li>
+        <li>TDS Deduction & Returns (26Q, 24Q)</li>
+        <li>GST Returns (GSTR-1, 3B, 9)</li>
+        <li>Tax Planning & Deductions</li>
+        <li>E-Filing on Government Portal</li>
+      </ul>
+      <button class="cc-enroll" onclick="openEnroll()">Enroll Now</button>
+    </div>
+  </div>
+  <div class="course-card-full reveal reveal-delay-1 tilt">
+    <span class="cc-badge">Flagship</span>
+    <div class="cc-header" style="background:linear-gradient(135deg,rgba(201,168,76,0.15),rgba(10,10,10,0.5));">
+      <div class="cc-icon">⚖️</div>
+      <div class="cc-name">Taxation Course</div>
+      <span class="cc-duration">⏱ 4–6 Months</span>
+    </div>
+    <div class="cc-body">
+      <ul class="cc-features">
+        <li>Complete Direct & Indirect Tax</li>
+        <li>GST + Income Tax + TDS Combined</li>
+        <li>Tax Audit & Assessment</li>
+        <li>Practical Case Studies</li>
+        <li>CA/Advocate Supervised Training</li>
+      </ul>
+      <button class="cc-enroll" onclick="openEnroll()">Enroll Now</button>
+    </div>
+  </div>
+  <div class="course-card-full reveal reveal-delay-2 tilt">
+    <span class="cc-badge">New 2026</span>
+    <div class="cc-header">
+      <div class="cc-icon">🤖</div>
+      <div class="cc-name">AI in Accounting</div>
+      <span class="cc-duration">⏱ 2 Months</span>
+    </div>
+    <div class="cc-body">
+      <ul class="cc-features">
+        <li>AI Tools for Bookkeeping</li>
+        <li>Automated GST Filing with AI</li>
+        <li>ChatGPT for Financial Analysis</li>
+        <li>Smart Excel & Data Automation</li>
+        <li>Future-Proof Your Career</li>
+      </ul>
+      <button class="cc-enroll" onclick="openEnroll()">Enroll Now</button>
+    </div>
+  </div>
+    <div class="course-card-full reveal reveal-delay-1 tilt">
+    <span class="cc-badge">Popular</span>
+    <div class="cc-header">
+      <div class="cc-icon">👨‍🏫</div>
+      <div class="cc-name">Training in Auditing</div>
+      <span class="cc-duration">⏱ 1–2 Months</span>
+    </div>
+    <div class="cc-body">
+      <ul class="cc-features">
+        <li>Practical & Hands-on Training</li>
+        <li>Real Case Studies</li>
+        <li>Expert Guidance</li>
+        <li>Industry-Oriented Curriculum</li>
+        <li>Certification After Completion</li>
+      </ul>
+      <button class="cc-enroll" onclick="openEnroll()">Enroll Now</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom" style="border-top:1px solid var(--glass-border);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+    <p>© 2026 HIAT – Institute of Accounts & Taxation. All rights reserved.</p>
+    <a class="btn-secondary" style="font-size:0.75rem;padding:8px 20px;" href="index.html">← Back to Home</a>
+  </div>
+</footer>
+
+<!-- ─── FLOATING WHATSAPP ─── -->
+<div class="wa-float" onclick="openWhatsApp()" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</div>
+
+<!-- WA Popup -->
+<div class="wa-popup" id="waPopup">
+  <button class="wp-close" onclick="document.getElementById('waPopup').classList.remove('show')">×</button>
+  <div class="wp-head">
+    <div class="wp-avatar">🎓</div>
+    <div>
+      <div class="wp-name">HIAT Institute</div>
+      <div class="wp-status">● Online now</div>
+    </div>
+  </div>
+  <p class="wp-msg">👋 Hi! Interested in our Accounting & Taxation courses? Chat with us now!</p>
+  <button class="wp-btn" onclick="openWhatsApp()">💬 Start Chat</button>
+</div>
+
+<!-- Enroll Popup -->
+<div class="popup-overlay" id="enrollPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closeEnroll()">×</button>
+    <div class="popup-title">Enroll at <em class="gold">HIAT</em></div>
+    <p class="popup-sub">Fill in your details and we'll contact you within 24 hours.</p>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Full Name *</label>
+        <input type="text" placeholder="Your full name" id="ep-name">
+      </div>
+      <div class="form-group">
+        <label>Phone *</label>
+        <input type="tel" placeholder="+91 XXXXX XXXXX" id="ep-phone">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Course Interested In</label>
+      <select id="ep-course">
+        <option value="">Select a course...</option>
+        <option>Basics of Computer</option>
+        <option>Tally with GST</option>
+        <option>Practical Accounting</option>
+        <option>Income Tax, TDS & GST</option>
+        <option>Taxation Course</option>
+        <option>AI in Accounting</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Preferred Batch Time</label>
+      <select id="ep-batch">
+        <option>Morning (8 AM – 10 AM)</option>
+        <option>Afternoon (12 PM – 2 PM)</option>
+        <option>Evening (6 PM – 8 PM)</option>
+        <option>Weekend Batch</option>
+      </select>
+    </div>
+    <button class="btn-primary" style="width:100%;margin-top:8px;" onclick="submitEnroll()">Submit Enrollment →</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<!-- <div class="toast" id="toast"></div> -->
+
+<script src="javascript/script.js"></script>
+
+</body>
+</html>
