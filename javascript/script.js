@@ -126,6 +126,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// ─── EMAILJS (contact form) ───
+// Template placeholders: use {{name}} {{phone}} {{email}} {{course}} {{message}} — or the user_* aliases below (both are sent).
+const EMAILJS_PUBLIC_KEY = '9W6buW9kvCqR4l6rw';
+const EMAILJS_SERVICE_ID = 'service_jq30zvp';
+const EMAILJS_TEMPLATE_ID = 'template_zftygxq';
+
+let emailJsReady = false;
+function initEmailJsIfPossible() {
+  if (typeof emailjs === 'undefined') return;
+  const placeholders = ['YOUR_PUBLIC_KEY', 'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID'];
+  if ([EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID].some((v, i) => !v || v === placeholders[i])) {
+    return;
+  }
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  emailJsReady = true;
+}
+document.addEventListener('DOMContentLoaded', initEmailJsIfPossible);
+
 // ─── FORM SUBMIT ───
 function submitEnroll() {
   const name = document.getElementById('ep-name').value.trim();
@@ -136,20 +154,71 @@ function submitEnroll() {
   const msg = encodeURIComponent(`Hi, I want to enroll at HIAT. Name: ${name}, Phone: ${phone}`);
   setTimeout(() => window.open(`https://wa.me/919034883741?text=${msg}`, '_blank'), 500);
 }
-function submitContactForm() {
-  const name = document.getElementById('cf-name').value.trim();
-  const phone = document.getElementById('cf-phone').value.trim();
-  if (!name || !phone) { showToast('⚠️ Please fill in name and phone'); return; }
-  showToast('✅ Inquiry sent! We\'ll contact you shortly.');
-  const course = document.getElementById('cf-course').value;
-  const msg = document.getElementById('cf-msg').value;
-  const wa = encodeURIComponent(`Hi HIAT, I'm ${name} (${phone}). Course: ${course}. ${msg}`);
-  setTimeout(() => window.open(`https://wa.me/919034883741?text=${wa}`, '_blank'), 500);
+async function submitContactForm() {
+  const name = document.getElementById('cf-name')?.value.trim();
+  const phone = document.getElementById('cf-phone')?.value.trim();
+  const email = document.getElementById('cf-email')?.value.trim() || '';
+  const course = document.getElementById('cf-course')?.value || '';
+  const msg = document.getElementById('cf-msg')?.value.trim() || '';
+  const btn = document.getElementById('cf-submit');
+
+  if (!name || !phone) {
+    showToast('⚠️ Please fill in name and phone');
+    return;
+  }
+
+  if (typeof emailjs === 'undefined') {
+    showToast('⚠️ Email service not loaded. Refresh the page or check your connection.');
+    return;
+  }
+  if (!emailJsReady) {
+    showToast('⚠️ Set EmailJS keys in javascript/script.js (PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID).');
+    return;
+  }
+
+  const prevLabel = btn ? btn.textContent : '';
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+  }
+
+  try {
+    const emailDash = email || '—';
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      name,
+      phone,
+      email: emailDash,
+      course: course || '—',
+      message: msg || '—',
+      user_name: name,
+      user_phone: phone,
+      user_email: emailDash,
+      from_name: name,
+    });
+    showToast('✅ Inquiry sent! We\'ll contact you shortly.');
+    document.getElementById('cf-name').value = '';
+    document.getElementById('cf-phone').value = '';
+    document.getElementById('cf-email').value = '';
+    document.getElementById('cf-course').value = '';
+    document.getElementById('cf-msg').value = '';
+  } catch (err) {
+    console.error('EmailJS:', err);
+    showToast('⚠️ Could not send. Check EmailJS template & service settings, then try again.');
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = prevLabel || 'Send Inquiry →';
+    }
+  }
 }
 
 // ─── TOAST ───
 function showToast(msg) {
   const t = document.getElementById('toast');
+  if (!t) {
+    console.warn(msg);
+    return;
+  }
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3500);
