@@ -587,164 +587,7 @@ body.nav-menu-open .nav-overlay{
   box-shadow:0px 20px 60px rgba(201,168,76,0.15);
 }
 
-/* ── TEAM SECTION ── */
-.team-section-wrap {
-  padding: 80px 24px;
-  background: var(--dark);
-  text-align: center;
-}
 
-.section-eyebrow {
-  font-size: 0.7rem;
-  letter-spacing: 4px;
-  color: var(--gold);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.team-section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.6rem;
-  color: var(--white);
-  margin-bottom: 8px;
-}
-
-.team-divider {
-  width: 60px;
-  height: 1px;
-  background: var(--gold);
-  margin: 20px auto 52px;
-  opacity: 0.5;
-}
-
-.team-grid {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  max-width: 860px;
-  margin: 0 auto;
-}
-
-.team-card {
-  width: 320px;
-  background: #111;
-  border: 1px solid rgba(201, 168, 76, 0.25);
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.team-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 24px 60px rgba(201, 168, 76, 0.15);
-}
-
-/* ── FIXED IMAGE SIZE ── */
-.team-img-wrap {
-  width: 100%;
-  aspect-ratio: 3 / 4;       /* portrait ratio — no white gaps */
-  overflow: hidden;
-  position: relative;
-  background: #1a1a1a;
-}
-
-.team-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;          /* fills the box, crops edges */
-  object-position: top center;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.team-card:hover .team-img-wrap img {
-  transform: scale(1.04);
-}
-
-/* ── HOVER OVERLAY ── */
-.team-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.90) 0%,
-    rgba(0, 0, 0, 0.15) 55%,
-    transparent 100%
-  );
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  display: flex;
-  align-items: flex-end;
-  padding: 24px;
-}
-
-.team-card:hover .team-overlay {
-  opacity: 1;
-}
-
-.team-overlay p {
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 0.82rem;
-  line-height: 1.65;
-}
-
-/* ── NAME BLOCK ── */
-.tc-info {
-  padding: 18px 22px 22px;
-  border-top: 1px solid rgba(201, 168, 76, 0.2);
-  text-align: left;
-}
-
-.tc-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
-  color: var(--white);
-  font-weight: 600;
-}
-
-.tc-role {
-  font-size: 0.72rem;
-  color: var(--gold);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-top: 5px;
-}
-
-.gold-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--gold);
-  margin-right: 7px;
-  vertical-align: middle;
-  margin-bottom: 2px;
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 720px) {
-  .team-grid {
-    gap: 24px;
-    padding: 0 16px;
-  }
-  .team-card {
-    width: min(100%, 340px);
-  }
-  .team-section-title {
-    font-size: 2rem;
-  }
-  .team-section-wrap {
-    padding: 60px 16px;
-  }
-}
-
-@media (max-width: 400px) {
-  .team-card {
-    width: 100%;
-  }
-}
 
 
 
@@ -881,6 +724,7 @@ footer{
 .footer-grid{
   display:grid;grid-template-columns:2fr 1fr 1fr;
   gap:3rem;margin-bottom:40px;
+  padding-top: 35px;
 }
 .footer-brand .logo{font-size:1.3rem;}
 .footer-desc{font-size:0.83rem;color:var(--gray);margin-top:12px;line-height:1.8;max-width:300px;}
@@ -909,6 +753,100 @@ footer{
   flex-wrap:wrap;gap:10px;
 }
 .footer-bottom p{font-size:0.75rem;color:var(--gray);}
+
+
+
+
+
+/* ── Footer Recognition Section ── */
+.footer-recognition {
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 2rem 5%;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.recognition-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.recognition-badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.rec-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.rec-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid rgba(201,168,76,0.4);
+  box-shadow: 0 0 20px rgba(201,168,76,0.15), 0 0 0 4px rgba(201,168,76,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rec-circle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(201,168,76,0.3), 0 0 0 6px rgba(201,168,76,0.12);
+}
+
+.rec-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.rec-circle-haryana {
+  background: #fff;
+  padding: 0.5px;
+}
+
+.rec-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gold-light);
+}
+
+.rec-sub {
+  font-size: 0.72rem;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+}
+
+.rec-divider {
+  width: 1px;
+  height: 70px;
+  background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.3), transparent);
+}
+
+@media (max-width: 480px) {
+  .rec-divider { display: none; }
+  .recognition-badges { gap: 2rem; }
+  .rec-circle { width: 75px; height: 75px; }
+}
 
 /* ─── ANIMATIONS ─── */
 @keyframes fadeInUp{
